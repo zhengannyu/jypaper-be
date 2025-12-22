@@ -1,0 +1,37 @@
+name: jypaper-be
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: directus
+      POSTGRES_PASSWORD: directus
+      POSTGRES_DB: directus
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  directus:
+    image: directus/directus:11
+    depends_on:
+      - db
+    ports:
+      - "8055:8055"
+    environment:
+      KEY: "insecure_local_key"
+      SECRET: "insecure_local_secret"
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "admin1234"
+      DB_CLIENT: "pg"
+      DB_HOST: "db"
+      DB_PORT: 5432
+      DB_DATABASE: "directus"
+      DB_USER: "directus"
+      DB_PASSWORD: "directus"
+      WEBSOCKETS_ENABLED: "true"
+
+      # CORS 設定
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "http://localhost:9003"
+
+volumes:
+  db_data:
