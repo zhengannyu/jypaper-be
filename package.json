@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "setup:contact-requests": "node scripts/setup-contact-requests.js"
+  },
   "devDependencies": {
     "@directus/schema": "^13.0.1"
   },

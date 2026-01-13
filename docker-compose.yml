@@ -16,9 +16,12 @@ services:
       - db
     ports:
       - "8055:8055"
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
     environment:
-      KEY: "insecure_local_key"
-      SECRET: "insecure_local_secret"
+      KEY: "87b24bccd08a015524d94d8d160128363239f3087a25143e7256fb40e77ec31f"
+      SECRET: "8dc63f3e2ef784f8b636a346e09188ba007451761158c22ed30b5a191571a2c5"
       ADMIN_EMAIL: "admin@example.com"
       ADMIN_PASSWORD: "admin1234"
       DB_CLIENT: "pg"
@@ -31,7 +34,9 @@ services:
 
       # CORS 設定
       CORS_ENABLED: "true"
-      CORS_ORIGIN: "http://localhost:9003"
+      CORS_ORIGIN: "http://localhost:8055"
 
 volumes:
   db_data:
+      external: true
+      name: jypaper-be_db_data
