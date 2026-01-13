@@ -1,0 +1,5 @@
+node_modules
+uploads
+*.dump
+directus_dump.sql
+/.git
