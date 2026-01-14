@@ -33,9 +33,11 @@ services:
       WEBSOCKETS_ENABLED: "true"
 
       # CORS 設定
+      PUBLIC_URL: "https://cms.jypaper.com.tw"
       CORS_ENABLED: "true"
-      CORS_ORIGIN: "http://localhost:8055"
-
+      CORS_ORIGIN: "true"
+      CORS_METHODS: "GET,POST,PATCH,DELETE,OPTIONS"
+      
 volumes:
   db_data:
       external: true
