@@ -1,0 +1,21 @@
+{
+	"name": "validate-variant-spec",
+	"version": "1.0.0",
+	"keywords": ["directus-extension", "directus-hook"],
+	"directus:extension": {
+	  "type": "hook",
+	  "path": "dist/index.js",
+	  "source": "src/index.ts",
+	  "host": "^11.x.x"
+	},
+	"scripts": {
+	  "build": "directus-extension build",
+	  "dev": "directus-extension build --watch"
+	},
+	"devDependencies": {
+	  "@directus/extensions-sdk": "^11.0.0",
+	  "typescript": "~5.0.0",
+	  "vite": "^5.0.0"
+	}
+  }
+  
