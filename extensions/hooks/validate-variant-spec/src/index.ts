@@ -11,6 +11,12 @@ async function validateSpec(
   meta: Record<string, any>,
   context: any
 ) {
+  console.log('[HOOK] validate-variant-spec triggered!', { 
+    collection: meta.collection, 
+    hasPaper: !!payload.paper, 
+    specCount: payload.spec?.length || 0 
+  });
+  
   const { database } = context;
   const paperId = payload.paper;
   
